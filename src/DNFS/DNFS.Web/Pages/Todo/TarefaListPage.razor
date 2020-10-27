@@ -1,0 +1,12 @@
+﻿@page "/todo"
+
+<h3>@VM.Title</h3>
+
+<h6 style="visibility:@(VM.IsBusy)">Carregando...</h6>
+
+@foreach (var item in VM.Items)
+{
+    <h4>@item.Titulo</h4>  <h4>@item.Conteudo</h4> <br />
+}
+
+
