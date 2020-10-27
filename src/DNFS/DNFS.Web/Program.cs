@@ -1,3 +1,4 @@
+using DNFS.Core.Modulos.Teste;
 using DNFS.Core.Modulos.Todo.ViewModel;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +19,7 @@ namespace DNFS.Web
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
             builder.Services.AddTransient<TarefaListPageViewModel>();
+            builder.Services.AddTransient<TesteViewModel>();
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
             await builder.Build().RunAsync();

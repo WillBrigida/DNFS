@@ -1,4 +1,5 @@
 ﻿using DNFS.Core.Modulos.Todo.Model;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -17,6 +18,15 @@ namespace DNFS.Core.Modulos.Todo.Services
 
             await Task.Delay(2000);
             return await Task.Run(() => lista);
+        }
+
+        internal static async Task<List<int>> ObterNumeros<T>(string v)
+        {
+            var lista = new List<int>();
+            for (int i = 0; i < 10; i++)
+                lista.Add(new Random().Next(0,9));
+
+            return await Task.Run(()=> lista);
         }
     }
 }
