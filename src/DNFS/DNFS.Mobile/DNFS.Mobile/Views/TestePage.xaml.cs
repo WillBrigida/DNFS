@@ -16,7 +16,6 @@ namespace DNFS.Mobile.Views
 
         protected override async void OnAppearing()
         {
-            VM.Data = null;
             await VM.ObterNumeros();
             base.OnAppearing();
         }

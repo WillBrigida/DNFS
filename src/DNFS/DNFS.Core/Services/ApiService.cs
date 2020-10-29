@@ -1,9 +1,9 @@
-﻿using DNFS.Core.Modulos.Todo.Model;
+﻿using DNFS.Core.Modulos.Tarefas;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DNFS.Core.Modulos.Todo.Services
+namespace DNFS.Core.Services
 {
     public class ApiService
     {
