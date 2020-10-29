@@ -1,0 +1,11 @@
+﻿@page "/numeros"
+
+<h3>@VM.Title</h3>
+<hr />
+
+<h5>Atualizado em: @VM.Data</h5>
+
+@foreach (var item in VM.Numeros)
+{
+    <h4>@item</h4>
+}
