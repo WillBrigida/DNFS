@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using System.Threading.Tasks;
 
+
 namespace DNFS.Web.Modulos.Tarefa
 {
     public partial class TarefaListaPage
@@ -22,5 +23,7 @@ namespace DNFS.Web.Modulos.Tarefa
             await VM.ObterTarefas();
             await base.OnInitializedAsync();
         }
+
+       
     }
 }

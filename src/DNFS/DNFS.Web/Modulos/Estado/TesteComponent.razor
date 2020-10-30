@@ -1,0 +1,26 @@
+﻿@inject StateContainer StateContainer
+@implements IDisposable
+
+
+<p>Valor TesteComponente: <b>@StateContainer.Property</b></p>
+
+<p>
+    <button @onclick="ChangePropertyValue">Mudar o valor do TesteComponente:</button>
+</p>
+
+@code {
+    protected override void OnInitialized()
+    {
+        StateContainer.OnChange += StateHasChanged;
+    }
+
+    private void ChangePropertyValue()
+    {
+        StateContainer.SetProperty($"Novo valor do TesteComponente {DateTime.Now}");
+    }
+
+    public void Dispose()
+    {
+        StateContainer.OnChange -= StateHasChanged;
+    }
+}

@@ -15,4 +15,8 @@
     <ProjectReference Include="..\DNFS.Core\DNFS.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Components\" />
+  </ItemGroup>
+
 </Project>

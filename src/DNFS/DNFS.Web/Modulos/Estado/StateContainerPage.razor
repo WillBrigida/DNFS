@@ -1,0 +1,29 @@
+﻿@page "/estado"
+@inject StateContainer StateContainer
+@implements IDisposable
+
+
+<p>Valor Componente corrente: <b>@StateContainer.Property</b></p>
+
+<p>
+    <button @onclick="ChangePropertyValue">Mudar o valor do componente corrente</button>
+</p>
+
+<TesteComponent />
+
+@code {
+    protected override void OnInitialized()
+    {
+        StateContainer.OnChange += StateHasChanged;
+    }
+
+    private void ChangePropertyValue()
+    {
+        StateContainer.SetProperty($"Novo valor do componente corrente {DateTime.Now}");
+    }
+
+    public void Dispose()
+    {
+        StateContainer.OnChange -= StateHasChanged;
+    }
+}

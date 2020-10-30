@@ -1,5 +1,7 @@
+using DNFS.Core.Modulos.Estado;
 using DNFS.Core.Modulos.Numeros;
 using DNFS.Core.Modulos.Tarefas;
+using DNFS.Web.Modulos.Estado;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -16,6 +18,8 @@ namespace DNFS.Web
             builder.RootComponents.Add<App>("#app");
             builder.Services.AddTransient<TarefaListPageViewModel>();
             builder.Services.AddTransient<NumeroListPageViewModel>();
+            builder.Services.AddSingleton<EstadoViewModel>();
+            builder.Services.AddSingleton<StateContainer>();
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
             await builder.Build().RunAsync();

@@ -1,0 +1,27 @@
+﻿
+@inject DNFS.Core.Modulos.Estado.EstadoViewModel VM
+@using System.ComponentModel
+
+<h3>Component 2 - @VM.Valor</h3>
+<button @onclick="@VM.DefinirValor">Mudar o valor do componente corrente</button>
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        VM.PropertyChanged += PropertyChanged();
+        await base.OnInitializedAsync();
+    }
+
+    private PropertyChangedEventHandler PropertyChanged()
+    {
+        return async (sender, e) =>
+        {
+            await InvokeAsync(() =>
+            {
+                StateHasChanged();
+            });
+        };
+    }
+    public void Dispose() => VM.PropertyChanged -= PropertyChanged();
+}
