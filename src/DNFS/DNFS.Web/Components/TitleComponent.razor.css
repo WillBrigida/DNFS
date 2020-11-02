@@ -1,0 +1,8 @@
+﻿body {
+}
+
+.spinner-visible {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 8px;
+}

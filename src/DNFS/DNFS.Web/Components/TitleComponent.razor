@@ -1,0 +1,32 @@
+﻿
+<div class="title-component">
+    <div class="d-lg-inline-flex text-center">
+        <h4>@Titulo</h4>
+        <div class="spinner-border text-center spinner-visible" role="status" style="display:@Display">
+        </div>
+    </div>
+    @ChildContent
+</div>
+
+@code
+{
+    [Parameter] public string Titulo { get; set; }
+    [Parameter]public RenderFragment ChildContent { get; set; }
+
+    public string Display { get; set; } = "none";
+    private bool _isVisible;[Parameter]
+    public bool IsVisible
+    {
+        get => _isVisible;
+        set
+        {
+            if (value != _isVisible)
+            {
+                _isVisible = value;
+                Display = IsVisible == true ? "block" : "none";
+            }
+        }
+    }
+}
+
+

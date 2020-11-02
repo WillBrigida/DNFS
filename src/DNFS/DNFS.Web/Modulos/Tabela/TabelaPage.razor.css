@@ -1,0 +1,14 @@
+﻿
+.tabela-page {
+}
+
+.spinner-visible {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 8px;
+    visibility: visible;
+}
+
+.spinner-hidden {
+    visibility: hidden;
+}

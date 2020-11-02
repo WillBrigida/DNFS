@@ -1,7 +1,10 @@
 ﻿@page "/numeros"
 
-<h3>@VM.Title</h3>
-<hr />
+<TitleComponent 
+    Titulo="@VM.Title"
+    IsVisible="false">
+    <hr />
+</TitleComponent>
 
 <h5>Atualizado em: @VM.Data</h5>
 

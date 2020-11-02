@@ -1,13 +1,12 @@
-﻿using DNFS.Core.Modulos.Tarefas;
+﻿using DNFS.Core.Modulos.Tabela;
 using Microsoft.AspNetCore.Components;
 using System.Threading.Tasks;
 
-
-namespace DNFS.Web.Modulos.Tarefa
+namespace DNFS.Web.Modulos.Tabela
 {
-    public partial class TarefaListaPage
+    public partial class TabelaPage 
     {
-        [Inject]  TarefaListPageViewModel VM { get; set; }
+        [Inject] public TabelaPageViewModel VM { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -20,9 +19,8 @@ namespace DNFS.Web.Modulos.Tarefa
             };
 
             VM.IsBusy = VM.IsVisible = true;
-            await VM.ObterTarefas();
+            await VM.ObterFuncionarios();
             await base.OnInitializedAsync();
         }
-       
     }
 }

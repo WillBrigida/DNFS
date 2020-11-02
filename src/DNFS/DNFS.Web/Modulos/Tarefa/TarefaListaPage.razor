@@ -1,6 +1,9 @@
 ﻿@page "/tarefas"
-<h3>@VM.Title</h3>
-<hr />
+<TitleComponent 
+    Titulo="@VM.Title"
+    IsVisible="@VM.IsVisible">
+    <hr />
+</TitleComponent>
 
 @foreach (var item in VM.Items)
 {

@@ -1,0 +1,18 @@
+﻿@page "/modal"
+
+<TitleComponent
+    Titulo="@VM.Title"
+    IsVisible="false">
+    <hr />
+</TitleComponent>
+
+<ModalComponent
+    OnExitModal="@VM.OnExitModal"
+    IsVisible="@VM.IsVisible">
+</ModalComponent>
+
+<button 
+    class="btn btn-outline-primary" 
+    @onclick="VM.ChamarModal">
+    Chamar modal
+</button>

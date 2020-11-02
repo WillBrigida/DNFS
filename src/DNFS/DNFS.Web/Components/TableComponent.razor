@@ -1,0 +1,31 @@
+﻿@typeparam TItem
+
+<div class="tabela-page">
+    <table class="table table-striped  table-responsive-xl">
+        <thead>
+            <tr>
+                @HeadContent
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Items ?? Array.Empty<TItem>())
+            {
+                <tr>
+                    @BodyContent(item)
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code
+{
+    [Parameter]
+    public IEnumerable<TItem> Items { get; set; }
+
+    [Parameter]
+    public RenderFragment<TItem> BodyContent { get; set; }
+
+    [Parameter]
+    public RenderFragment HeadContent { get; set; }
+}

@@ -1,0 +1,27 @@
+﻿@page "/tabela"
+
+<TitleComponent 
+    IsVisible="@VM.IsVisible"
+    Titulo="@(VM.Title)">
+</TitleComponent>
+<br />
+<TableComponent Items="VM.Funcionarios">
+    <HeadContent>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Data</th>
+        <th>Salario</th>
+    </HeadContent>
+    <BodyContent>
+        <td> @context.FuncionarioId</td>
+        <td> @context.Nome</td>
+        <td> @context.Sobrenome</td>
+        <td> @context.DataContrato</td>
+        <td> @context.Salario</td>
+    </BodyContent>
+</TableComponent>
+
+<ModalComponent>
+   <h3>nbhhhggfgdgfdf</h3>
+</ModalComponent>

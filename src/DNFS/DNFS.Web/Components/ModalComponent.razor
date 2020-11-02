@@ -1,0 +1,49 @@
+﻿
+
+<div class="modal-backdrop show" style="display: @Display;"></div>
+
+<div class="modal text-left " tabindex="-1" role="dialog" style="display: @Display;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm modal-dialog-scrollable " role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">@Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" @onclick="@OnExitModal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                @ChildContent
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" @onclick="@OnExitModal">@TextButton</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code
+{
+
+    [Parameter] public string Title { get; set; } = "Alerta!";
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public EventCallback OnAction { get; set; }
+    [Parameter] public EventCallback OnExitModal { get; set; }
+    [Parameter] public string TextButton { get; set; } = "Ok";
+    
+    public string Display { get; set; } = "none";
+    private bool _isVisible;  [Parameter] public bool IsVisible
+    {
+        get => _isVisible;
+        set
+        {
+            if (value != _isVisible)
+            {
+                _isVisible = value;
+                Display = IsVisible == true ? "block" : "none";
+            }
+        }
+    }
+}

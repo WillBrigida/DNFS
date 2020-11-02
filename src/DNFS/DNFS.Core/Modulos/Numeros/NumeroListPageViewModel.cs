@@ -1,5 +1,5 @@
 ﻿using DNFS.Core.Services;
-using MvvmHelpers;
+using DNFS.Core.Utils;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,7 +9,7 @@ namespace DNFS.Core.Modulos.Numeros
     public class NumeroListPageViewModel : BaseViewModel
     {
 
-        public ObservableRangeCollection<int> Numeros { get; set; }
+        public MvvmHelpers.ObservableRangeCollection<int> Numeros { get; set; }
         private DateTime? _data; public DateTime? Data
         {
             get => _data;
@@ -19,7 +19,7 @@ namespace DNFS.Core.Modulos.Numeros
         public NumeroListPageViewModel()
         {
             Title = "Numeros";
-            Numeros = new ObservableRangeCollection<int>();
+            Numeros = new MvvmHelpers.ObservableRangeCollection<int>();
         }
 
         public async Task ObterNumeros()

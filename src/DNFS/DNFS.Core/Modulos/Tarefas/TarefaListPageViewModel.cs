@@ -1,17 +1,17 @@
-﻿using MvvmHelpers;
+﻿using DNFS.Core.Utils;
 using System.Threading.Tasks;
 
 namespace DNFS.Core.Modulos.Tarefas
 {
     public class TarefaListPageViewModel : BaseViewModel
     {
-        public ObservableRangeCollection<Tarefa> Items { get; set; }
+        public MvvmHelpers.ObservableRangeCollection<Tarefa> Items { get; set; }
 
         #region Commads
         #endregion
         public TarefaListPageViewModel()
         {
-            Items = new ObservableRangeCollection<Tarefa>();
+            Items = new MvvmHelpers.ObservableRangeCollection<Tarefa>();
             Title = "Tarefas";
         }
 
@@ -29,6 +29,7 @@ namespace DNFS.Core.Modulos.Tarefas
             finally
             {
                 IsNotBusy = true;
+                IsVisible = false;
             }
         }
     }

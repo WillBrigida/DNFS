@@ -1,7 +1,12 @@
 ﻿@page "/estadomvvm"
 
-<h3>@VM.Title</h3>
-<hr />
+
+<TitleComponent 
+    Titulo="@VM.Title"
+    IsVisible="false">
+    <hr />
+</TitleComponent>
+
 <h4>@VM.Valor</h4>
 
 

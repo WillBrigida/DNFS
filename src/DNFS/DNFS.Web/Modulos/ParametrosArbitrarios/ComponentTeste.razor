@@ -1,0 +1,7 @@
+﻿
+<img @attributes="@ParametrosArb" />
+
+@code {
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> ParametrosArb { get; set; }
+}
