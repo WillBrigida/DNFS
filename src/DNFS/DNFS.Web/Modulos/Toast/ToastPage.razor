@@ -1,0 +1,20 @@
+﻿@page "/toast"
+
+<!--Title-->
+<TitleComponent 
+    Titulo="@VM.Title"
+    IsVisible="false">
+    <hr />
+</TitleComponent>
+
+<ToastComponent
+    IsVisible="@IsVisible"
+    Message="@Mss"/>
+
+<button 
+    class="btn btn-success" 
+    @onclick="@VM.MostrarToast">
+    Mostrar Toast
+</button>
+
+

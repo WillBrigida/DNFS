@@ -1,9 +1,54 @@
-﻿<div class="alert @Type" role="alert">
+﻿@using System.Threading
+
+<div id="test" class="alert @Type "  role="alert" style="display:@Display">
     @Message
 </div>
 
 @code
 {
     [Parameter] public string Message { get; set; }
-    [Parameter] public string Type { get; set; }
+    [Parameter] public string Type { get; set; } = "alert-success";
+    public string Display { get; set; } = "none";
+    private bool _isVisible; [Parameter]public bool IsVisible
+    {
+        get => _isVisible;
+        set
+        {
+            Console.WriteLine($"{value} {_isVisible}");
+            if (value != _isVisible)
+            {
+                _isVisible = value;
+                Display = IsVisible == true ? "block" : "none";
+
+                if (_isVisible == true)
+                    NotIsVisibleToast();
+            }
+        }
+    }
+
+    async Task NotIsVisibleToast()
+    {
+        await Task.Run(() => new Timer(new TimerCallback(async _ =>
+        {
+            Display = "none";
+            StateHasChanged();
+        }), null, 4000, 0));
+    }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("OnAfterRenderAsync ToastComponent");
+            //_isVisible = false; Display = "none";
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        Console.WriteLine("OnInitializedAsync ToastComponent");
+        return base.OnInitializedAsync();
+    }
 }
+

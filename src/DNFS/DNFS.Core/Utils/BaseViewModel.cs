@@ -12,6 +12,12 @@ namespace DNFS.Core.Utils
             get => _isVisibele; 
             set => SetProperty(ref _isVisibele, value); 
         }
+
+        private string _message; public string Message
+        {
+            get => _message;
+            set => SetProperty(ref _message, value);
+        }
         #endregion
 
         public void OnExitModal() =>IsVisible = false;

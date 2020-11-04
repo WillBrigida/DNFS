@@ -23,6 +23,5 @@ namespace DNFS.Web.Modulos.Tarefa
             await VM.ObterTarefas();
             await base.OnInitializedAsync();
         }
-       
     }
 }
